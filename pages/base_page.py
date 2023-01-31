@@ -12,9 +12,17 @@ class BasePage():
 
     def click_on_the_element(self, selector, selector_type=By.XPATH):
         return self.driver.find_element(selector_type, selector).click()
-    class MyClass():
-        variable = "Hello world!"
-        def function(self):
-            print(self.variable)
 
-            myObject = MyClass()
+
+class loginPage(BasePage):
+    login_field_xpath = "//*[@id='login']"
+    password_field_xpath = "//*[@id='password']"
+    sign_in_button_xpath = "//*[text()= 'Sing in']"
+    login_url = ('https://scouts-test.futbolkolektyw.pl/en')
+    expected_title = ()
+    title_of_box = ()
+    header_of_box = ()
+
+
+    def type_in_emeil(self, email):
+        self.field_send_keys(self.login_field_xpath, email)
